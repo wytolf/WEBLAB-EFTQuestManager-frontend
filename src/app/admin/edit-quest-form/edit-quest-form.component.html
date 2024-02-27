@@ -1,0 +1,45 @@
+<h1>Edit page</h1>
+<div *ngIf="quest">
+  <div class="mb-3">
+    <label class="form-label">Title: </label>
+    <input
+      type="text"
+      class="form-control"
+      [(ngModel)]="quest.title"
+      placeholder="Quest Title"
+    >
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Trader: </label>
+    <input
+      type="text"
+      class="form-control"
+      [(ngModel)]="quest.trader"
+      placeholder="Quest Title"
+    >
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Map: </label>
+    <input
+      type="text"
+      class="form-control"
+      [(ngModel)]="quest.map"
+      placeholder="Quest Title"
+    >
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Link: </label>
+    <input
+      type="text"
+      class="form-control"
+      [(ngModel)]="quest.link"
+      placeholder="Quest Title"
+    >
+  </div>
+
+  <button type="button" (click)="goBack()">go back</button>
+  <button type="button" (click)="save()">save</button>
+</div>

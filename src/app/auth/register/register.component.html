@@ -1,0 +1,42 @@
+<form [formGroup]="form">
+  <h1>Enter with your account</h1>
+  <div>
+    <label>Username</label>
+    <input type="username" placeholder="JxGamer" formControlName="username">
+    <span *ngIf="form.get('username')!.hasError('required')">
+        Username is required
+      </span>
+    <span *ngIf="form.get('username')!.hasError('username')">
+        Username is invalid
+      </span>
+  </div>
+  <div>
+    <label>Role</label>
+    <input type="radio" name="role" value="user" formControlName="role" checked> User
+    <input type="radio" name="role" value="admin" formControlName="role"> Admin
+  </div>
+  <div>
+    <label>Email</label>
+    <input type="email" placeholder="Ex: pat@example.com" formControlName="email">
+    <span *ngIf="form.get('email')!.hasError('required')">
+        Email is required
+      </span>
+    <span *ngIf="form.get('email')!.hasError('email')">
+        Email is invalid
+      </span>
+  </div>
+  <div>
+    <label>Password</label>
+    <input type="password" placeholder="Password" formControlName="password">
+    <span *ngIf="form.get('password')!.hasError('required')">
+        Password is required
+      </span>
+  </div>
+  <button color="primary" class="button-loader" *ngIf="isLoggingIn"
+          test-id="login-loader">
+    <span color="accent" diameter="20"></span>
+  </button>
+  <button color="primary" [disabled]="!form.valid" (click)="register()"
+          *ngIf="!isLoggingIn" test-id="register-button">REGISTER
+  </button>
+</form>

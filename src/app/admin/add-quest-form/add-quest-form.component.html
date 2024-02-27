@@ -1,0 +1,47 @@
+<h1>Add new quest</h1>
+<form class="container p-5" [formGroup]="questForm" (ngSubmit)="$event.preventDefault(); submitForm()">
+
+  <div class="mb-3">
+    <label class="form-label">Title: </label>
+    <input
+      type="text"
+      class="form-control"
+      formControlName="questTitle"
+    >
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Trader: </label>
+    <input
+      type="text"
+      class="form-control"
+      formControlName="questTrader"
+    >
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Map: </label>
+    <input
+      type="text"
+      class="form-control"
+      formControlName="questMap"
+    >
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Link: </label>
+    <input
+      type="text"
+      class="form-control"
+      formControlName="questLink"
+    >
+  </div>
+
+  <div class="mb-3">
+    <button
+      type="submit"
+      class="btn btn-primary"
+      [disabled]="questForm.invalid">Add Quest
+    </button>
+  </div>
+</form>
