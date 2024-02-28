@@ -17,10 +17,8 @@ export class AdminComponent {
       } else {
         console.log("youre not an admin, your role is: " + userRole);
         router.navigate(['/manager']);
-        //TODO: weiterleiten zur Managerseite
       }
     } else {
-      //TODO: weiterleiten zur Loginseite
       router.navigate(['/login']);
     }
   }

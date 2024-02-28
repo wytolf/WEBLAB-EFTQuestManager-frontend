@@ -1,14 +1,14 @@
 .quest-list-element {
 
-  background-color: #f9f9f9; /* Hintergrundfarbe des Listenelements */
-  border-radius: 5px; /* Abrundung der Ecken */
-  padding: 10px; /* Innenabstand */
-  margin-bottom: 10px; /* Abstand nach unten */
-  box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.3); /* Schatten für Tiefeneffekt */
+  background-color: #f9f9f9;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 10px;
+  box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.3);
 }
 
 .quest-info {
-  flex: 1; /* Füllt den verfügbaren Platz */
+  flex: 1;
 }
 
 .btn-link,
@@ -16,18 +16,18 @@
 .btn-details {
   display: inline-block;
   padding: 5px 10px;
-  border: 1px solid #007bff; /* Randfarbe */
-  border-radius: 5px; /* Abrundung der Ecken */
-  background-color: #007bff; /* Hintergrundfarbe */
-  color: #fff; /* Textfarbe */
-  text-decoration: none; /* Unterstreichung entfernen */
+  border: 1px solid #007bff;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: #fff;
+  text-decoration: none;
 }
 
 .btn-link:hover,
 .btn-edit:hover,
 .btn-details:hover {
-  background-color: #0056b3; /* Hintergrundfarbe beim Hover */
-  border-color: #0056b3; /* Randfarbe beim Hover */
+  background-color: #0056b3;
+  border-color: #0056b3;
 }
 
 .quest-actions,

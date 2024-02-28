@@ -2,11 +2,11 @@
   display: inline-block;
   padding: 5px 10px;
   margin: 10px;
-  border: 1px solid #007bff; /* Randfarbe */
-  border-radius: 5px; /* Abrundung der Ecken */
-  background-color: #007bff; /* Hintergrundfarbe */
-  color: #fff; /* Textfarbe */
-  text-decoration: none; /* Unterstreichung entfernen */
+  border: 1px solid #007bff;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: #fff;
+  text-decoration: none;
 }
 
 .error-message {
