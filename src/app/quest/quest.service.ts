@@ -40,14 +40,14 @@ export class QuestService {
     //return this.http.get('assets/quests.json', options);
   }
 
-  getQuest(id: number) {
+  getQuest(id: string) {
     console.log("getQuest() wurde aufgerufen");
     console.log(id);
     let quest: Quest[] = [];
 
     this.getActualQuests().subscribe((data: any) => {
       for (let i = 0; i < data.length; i++) {
-        if (data[i].id === id) {
+        if (data[i].title === id) {
           quest = data[i];
           console.log(quest);
           break;

@@ -1,3 +1,41 @@
 .quest-list-element {
-  border: dotted;
+
+  background-color: #f9f9f9; /* Hintergrundfarbe des Listenelements */
+  border-radius: 5px; /* Abrundung der Ecken */
+  padding: 10px; /* Innenabstand */
+  margin-bottom: 10px; /* Abstand nach unten */
+  box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.3); /* Schatten für Tiefeneffekt */
+}
+
+.quest-info {
+  flex: 1; /* Füllt den verfügbaren Platz */
+}
+
+.btn-link,
+.btn-edit,
+.btn-details {
+  display: inline-block;
+  padding: 5px 10px;
+  border: 1px solid #007bff; /* Randfarbe */
+  border-radius: 5px; /* Abrundung der Ecken */
+  background-color: #007bff; /* Hintergrundfarbe */
+  color: #fff; /* Textfarbe */
+  text-decoration: none; /* Unterstreichung entfernen */
+}
+
+.btn-link:hover,
+.btn-edit:hover,
+.btn-details:hover {
+  background-color: #0056b3; /* Hintergrundfarbe beim Hover */
+  border-color: #0056b3; /* Randfarbe beim Hover */
+}
+
+.quest-actions,
+.form-check-label {
+  flex: 1;
+  display: flex;
+}
+.quest-actions a,
+.form-check-label p {
+  margin: 10px;
 }

@@ -19,14 +19,14 @@ export class EditQuestFormComponent implements OnInit {
   }
 
   getQuest(): void {
-    const id = parseInt(this.route.snapshot.paramMap.get('id')!, 10);
+    const id = this.route.snapshot.paramMap.get('id')!;
     console.log(id);
     let matches = this.service.getQuest(id);
     this.quest = matches[0];
   }
 
   goBack(): void {
-    // this.location.back();
+    //this.location.back();
   }
 
   save(): void {

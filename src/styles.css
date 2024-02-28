@@ -1,1 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
+:root {
+  color-scheme: light only;
+}
+
+.pageTitle {
+  font-size: 36px; /* Schriftgröße */
+  font-weight: bold; /* Fettschrift */
+  /*color: #333; !* Textfarbe *!*/
+  text-align: center; /* Text zentrieren */
+  margin-bottom: 20px; /* Abstand nach unten */
+}

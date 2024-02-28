@@ -53,8 +53,8 @@ export class LoginComponent {
     if (this.authenticationService.isUserLoggedIn) {
       this.authenticationService.logout().subscribe({
         next: () => {
-          console.log("user logged out")
-          this.router.navigate(['login1'])
+          console.log("user logged out");
+          this.router.navigate(['manager']);
         },
         error: error => {
           this.isLoggingIn = false;
