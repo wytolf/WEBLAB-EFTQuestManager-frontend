@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {AuthService} from "../auth.service";
 import {Router} from "@angular/router";
@@ -16,7 +16,8 @@ export class RegisterComponent {
     private authenticationService: AuthService,
     private formBuilder: FormBuilder,
     private router: Router
-  ) {  }
+  ) {
+  }
 
   ngOnInit(): void {
     this.form = this.formBuilder.group({

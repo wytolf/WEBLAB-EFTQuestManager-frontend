@@ -11,6 +11,7 @@ import {AuthService} from "../../../auth/auth.service";
 export class QuestListItemComponent implements OnInit {
   @Input() quest!: Quest;
   isAdmin: boolean = false;
+
   constructor(private route: Router, private authService: AuthService) {
 
   }

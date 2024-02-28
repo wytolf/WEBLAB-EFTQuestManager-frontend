@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 
 @Component({
   selector: 'add-task-form',
@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrl: './add-task-form.component.css'
 })
 export class AddTaskFormComponent {
-    //Add Task zur Quest für zuküngtige Version geplant
+  //Add Task zur Quest für zuküngtige Version geplant
 }

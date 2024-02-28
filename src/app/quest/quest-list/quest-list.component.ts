@@ -7,5 +7,5 @@ import {Quest} from "../../../shared/models/quest";
   styleUrl: './quest-list.component.css'
 })
 export class QuestListComponent {
-  @Input() quests : Quest[] = [];
+  @Input() quests: Quest[] = [];
 }

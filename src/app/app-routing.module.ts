@@ -1,5 +1,5 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
 import {ManagerComponent} from "./manager/manager.component";
 import {AdminComponent} from "./admin/admin.component";
 import {NotFoundComponent} from "./not-found/not-found.component";
@@ -9,13 +9,13 @@ import {EditQuestFormComponent} from "./admin/edit-quest-form/edit-quest-form.co
 import {AuthComponent} from "./auth/auth.component";
 
 const routes: Routes = [
-  { path: '', redirectTo: 'manager', pathMatch: 'full' },
-  {path: 'login', component: AuthComponent },
-  {path: 'manager', component: ManagerComponent },
-  {path: 'quest/new', component: AddQuestFormComponent },
+  {path: '', redirectTo: 'manager', pathMatch: 'full'},
+  {path: 'login', component: AuthComponent},
+  {path: 'manager', component: ManagerComponent},
+  {path: 'quest/new', component: AddQuestFormComponent},
   {path: 'quest/:id', component: QuestDetailsComponent},
   {path: 'quest/edit/:id', component: EditQuestFormComponent},
-  {path: 'admin', component: AdminComponent },
+  {path: 'admin', component: AdminComponent},
   {path: '**', component: NotFoundComponent} //muss am schluss sein
 ];
 
@@ -23,4 +23,5 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+}

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {AuthService} from "../auth/auth.service";
 import {Router} from "@angular/router";
 
@@ -12,14 +12,14 @@ export class AdminComponent {
     if (authService.isLoggedIn()) {
       console.log(authService.user);
       const userRole = authService.user?.role;
-      if (userRole === "admin"){
+      if (userRole === "admin") {
         console.log("youre an admin");
       } else {
         console.log("youre not an admin, your role is: " + userRole);
         router.navigate(['/manager']);
         //TODO: weiterleiten zur Managerseite
       }
-    }else {
+    } else {
       //TODO: weiterleiten zur Loginseite
       router.navigate(['/login']);
     }

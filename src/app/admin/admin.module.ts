@@ -4,7 +4,7 @@ import {AdminComponent} from './admin.component';
 import {QuestModule} from "../quest/quest.module";
 import {RouterLink} from "@angular/router";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-import { EditQuestFormComponent } from './edit-quest-form/edit-quest-form.component';
+import {EditQuestFormComponent} from './edit-quest-form/edit-quest-form.component';
 import {AddQuestFormComponent} from "./add-quest-form/add-quest-form.component";
 
 

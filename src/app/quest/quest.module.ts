@@ -1,12 +1,11 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
 import {QuestListComponent} from "./quest-list/quest-list.component";
 import {QuestDetailsComponent} from "./quest-details/quest-details.component";
 import {QuestListItemComponent} from "./quest-list/quest-list-item/quest-list-item.component";
 import {HttpClientModule} from "@angular/common/http";
-import { QuestComponent } from './quest.component';
+import {QuestComponent} from './quest.component';
 import {RouterModule} from "@angular/router";
-
 
 
 @NgModule({
@@ -28,4 +27,5 @@ import {RouterModule} from "@angular/router";
     QuestComponent
   ]
 })
-export class QuestModule { }
+export class QuestModule {
+}
