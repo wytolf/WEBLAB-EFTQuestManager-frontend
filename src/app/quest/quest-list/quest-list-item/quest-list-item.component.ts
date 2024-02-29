@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {Quest} from "../../../../shared/models/quest";
 import {Router} from "@angular/router";
 import {AuthService} from "../../../auth/auth.service";
@@ -8,16 +8,22 @@ import {AuthService} from "../../../auth/auth.service";
   templateUrl: './quest-list-item.component.html',
   styleUrl: './quest-list-item.component.css'
 })
-export class QuestListItemComponent implements OnInit {
+export class QuestListItemComponent {
   @Input() quest!: Quest;
   isAdmin: boolean = false;
 
-  constructor(private route: Router, private authService: AuthService) {
-
+  constructor(private router: Router, private authService: AuthService) {
+    if (authService.isLoggedIn()) {
+      const userRole = authService.user?.role;
+      if (userRole === "admin") {
+        this.isAdmin = true;
+      } else {
+        this.isAdmin = false;
+        this.router.navigate(['/manager']);
+      }
+    } else {
+      this.isAdmin = false;
+      this.router.navigate(['/login']);
+    }
   }
-
-  ngOnInit(): void {
-    this.isAdmin = this.authService.user?.role === "admin";
-  }
-
 }

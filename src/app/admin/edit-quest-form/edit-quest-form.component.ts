@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {QuestService} from "../../quest/quest.service";
 import {Quest} from "../../../shared/models/quest";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-edit-quest-form',
@@ -11,7 +11,7 @@ import {ActivatedRoute} from "@angular/router";
 export class EditQuestFormComponent implements OnInit {
   quest: Quest | undefined;
 
-  constructor(private service: QuestService, private route: ActivatedRoute) {
+  constructor(private service: QuestService, private route: ActivatedRoute, private angularRouter: Router) {
   }
 
   ngOnInit(): void {
@@ -20,13 +20,18 @@ export class EditQuestFormComponent implements OnInit {
 
   getQuest(): void {
     const id = this.route.snapshot.paramMap.get('id')!;
-    console.log(id);
-    let matches = this.service.getQuest(id);
-    this.quest = matches[0];
+    this.service.getActualQuests().subscribe((data: any) => {
+      for (let i = 0; i < data.length; i++) {
+        if (data[i].title === id) {
+          this.quest = data[i];
+          break;
+        }
+      }
+    });
   }
 
   goBack(): void {
-    //this.location.back();
+    this.angularRouter.navigate(['/manager']);
   }
 
   save(): void {

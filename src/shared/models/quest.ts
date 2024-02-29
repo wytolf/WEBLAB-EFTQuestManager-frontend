@@ -4,7 +4,5 @@ export class Quest {
     public title: string,
     public trader: string,
     public map: string,
-    public link: string) {
-
-  }
+    public link: string) { }
 }

@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
 import {QuestService} from "../quest.service";
+import {Quest} from "../../../shared/models/quest";
 
 @Component({
   selector: 'quest-details',
@@ -9,15 +10,23 @@ import {QuestService} from "../quest.service";
 })
 export class QuestDetailsComponent {
   //die Questdaten werden geladen, aber nicht angezeigt, ausser die komponente lädt direkt (nicht möglich wegen Auth)
-  quest: any = {};
+  quest: Quest | undefined;
+
 
   constructor(private quests: QuestService, private route: ActivatedRoute) {
     route.params.subscribe(val => {
       let id = val["id"];
       console.log(id);
       if (id) {
-        this.quest = this.quests.getQuest(id);
-        console.log(this.quest);
+        console.log(this.quests.getQuest(id));
+        this.quests.getActualQuests().subscribe((data: any) => {
+          for (let i = 0; i < data.length; i++) {
+            if (data[i].title === id) {
+              this.quest = data[i];
+              break;
+            }
+          }
+        });
       }
     });
   }
