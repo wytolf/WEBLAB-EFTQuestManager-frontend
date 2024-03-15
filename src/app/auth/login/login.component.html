@@ -1,8 +1,8 @@
 <form [formGroup]="form">
   <h1>Enter with your account</h1>
   <div>
-    <label>Email</label>
-    <input type="email" placeholder="Ex: pat@example.com" formControlName="email">
+    <label for="email" >Email</label>
+    <input id="email" type="email" placeholder="Ex: pat@example.com" formControlName="email">
     <span class="error-message" *ngIf="form.get('email')!.hasError('required') && form.get('email')!.touched">
         Email is required
       </span>
@@ -11,8 +11,8 @@
       </span>
   </div>
   <div>
-    <label>Password</label>
-    <input type="password" placeholder="Password" formControlName="password">
+    <label for="password">Password</label>
+    <input id="password" type="password" placeholder="Password" formControlName="password">
     <span class="error-message" *ngIf="form.get('password')!.hasError('required') && form.get('password')!.touched">
         Password is required
       </span>

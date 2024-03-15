@@ -40,7 +40,6 @@ export class RegisterComponent {
     });
     console.log(`form data: { username: ${this.form.value.username}, role: ${this.form.value.role}, email: ${this.form.value.email}`);
     console.log(response);
-    this.router.navigate(['welcome']);
-    //TODO: handle response after connecting backend to page
+    this.router.navigate(['manager']);
   }
 }

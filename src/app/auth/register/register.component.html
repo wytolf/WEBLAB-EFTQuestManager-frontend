@@ -1,25 +1,25 @@
 <form [formGroup]="form">
   <h1>Enter with your account</h1>
   <div>
-    <label>Username</label>
-    <input type="username" placeholder="JxGamer" formControlName="username">
+    <label for="username">Username</label>
+    <input id="username" type="username" placeholder="JxGamer" formControlName="username">
     <span class="error-message" *ngIf="form.get('username')!.hasError('required') && form.get('username')!.touched">Username is required</span>
     <span class="error-message" *ngIf="form.get('username')!.hasError('username') && form.get('username')!.touched">Username is invalid</span>
   </div>
   <div>
-    <label>Role</label>
-    <input type="radio" name="role" value="user" formControlName="role" checked> User
+    <label for="role">Role</label>
+    <input id="role" type="radio" name="role" value="user" formControlName="role" checked> User
     <input type="radio" name="role" value="admin" formControlName="role"> Admin
   </div>
   <div>
-    <label>Email</label>
-    <input type="email" placeholder="Ex: pat@example.com" formControlName="email">
+    <label for="email">Email</label>
+    <input id="email" type="email" placeholder="Ex: pat@example.com" formControlName="email">
     <span class="error-message" *ngIf="form.get('email')!.hasError('required') && form.get('email')!.touched">Email is required</span>
     <span class="error-message" *ngIf="form.get('email')!.hasError('email') && form.get('email')!.touched">Email is invalid</span>
   </div>
   <div>
-    <label>Password</label>
-    <input type="password" placeholder="Password" formControlName="password">
+    <label for="password">Password</label>
+    <input id="password" type="password" placeholder="Password" formControlName="password">
     <span class="error-message" *ngIf="form.get('password')!.hasError('required') && form.get('password')!.touched">Password is required</span>
   </div>
   <button class="login-form"  color="primary" [disabled]="!form.valid" (click)="register()"

@@ -2,8 +2,9 @@
 <form class="container p-5" [formGroup]="questForm" (ngSubmit)="$event.preventDefault(); submitForm()">
 
   <div class="mb-3">
-    <label class="form-label">Title: </label>
+    <label for="title" class="form-label">Title: </label>
     <input
+      id="title"
       type="text"
       class="form-control"
       formControlName="questTitle"
@@ -11,8 +12,9 @@
   </div>
 
   <div class="mb-3">
-    <label class="form-label">Trader: </label>
+    <label for="trader" class="form-label">Trader: </label>
     <input
+      id="trader"
       type="text"
       class="form-control"
       formControlName="questTrader"
@@ -20,8 +22,9 @@
   </div>
 
   <div class="mb-3">
-    <label class="form-label">Map: </label>
+    <label for="map" class="form-label">Map: </label>
     <input
+      id="map"
       type="text"
       class="form-control"
       formControlName="questMap"
@@ -29,8 +32,9 @@
   </div>
 
   <div class="mb-3">
-    <label class="form-label">Link: </label>
+    <label for="link" class="form-label">Link: </label>
     <input
+      id="link"
       type="text"
       class="form-control"
       formControlName="questLink"

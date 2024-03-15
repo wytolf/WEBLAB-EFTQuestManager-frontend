@@ -3,6 +3,7 @@ import {HttpClient, HttpHeaders, HttpParams} from "@angular/common/http";
 import {Observable, of} from "rxjs";
 import {Quest} from "../../shared/models/quest";
 import {Router} from "@angular/router";
+import {environment} from "../../environments/environment";
 
 @Injectable({
   providedIn: 'root'
@@ -36,24 +37,28 @@ export class QuestService {
         format: 'json'
       }
     });
+
+    if (!environment.hasBackendConnection) {
+      return this.http.get<Array<Quest>>('assets/quests.json');
+    }
     return this.http.get<Array<Quest>>('http://127.0.0.1:4555/api/quests');
-    //return this.http.get('assets/quests.json', options);
   }
 
   getQuest(id: string) {
     console.log("getQuest() wurde aufgerufen");
     console.log(id);
-    let quest: Quest[] = [];
+    let quest: Quest | null = null;
 
-    this.getActualQuests().subscribe((data: any) => {
-      for (let i = 0; i < data.length; i++) {
-        if (data[i].title === id) {
-          quest = data[i];
-          console.log(quest);
-          break;
-        }
+    this.getActualQuests().subscribe((data: Quest[]) => {
+      const foundQuest = data.find(q => q.title === id);
+      if (foundQuest) {
+        quest = foundQuest;
+        console.log(quest);
+      } else {
+        console.log("Quests nicht gefunden");
       }
     });
+
     console.log(quest);
     return quest;
   }
