@@ -21,7 +21,6 @@ export class RegisterComponent {
 
   ngOnInit(): void {
     this.form = this.formBuilder.group({
-      username: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       role: ['', [Validators.required]],
       password: ['', [Validators.required]]
@@ -33,7 +32,6 @@ export class RegisterComponent {
     this.isLoggingIn = true;
     console.log("try to register");
     const response = this.authenticationService.register({
-      username: this.form.value.username,
       role: this.form.value.role,
       email: this.form.value.email,
       password: this.form.value.password

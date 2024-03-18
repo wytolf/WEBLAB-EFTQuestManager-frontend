@@ -1,11 +1,5 @@
 <form [formGroup]="form">
-  <h1>Enter with your account</h1>
-  <div>
-    <label for="username">Username</label>
-    <input id="username" type="username" placeholder="JxGamer" formControlName="username">
-    <span class="error-message" *ngIf="form.get('username')!.hasError('required') && form.get('username')!.touched">Username is required</span>
-    <span class="error-message" *ngIf="form.get('username')!.hasError('username') && form.get('username')!.touched">Username is invalid</span>
-  </div>
+  <h1>Create a User</h1>
   <div>
     <label for="role">Role</label>
     <input id="role" type="radio" name="role" value="user" formControlName="role" checked> User

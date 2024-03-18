@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import {AngularFireAuth} from '@angular/fire/compat/auth';
 import {catchError, from, Observable, Subscription, throwError} from 'rxjs';
+import {mergeMap} from 'rxjs/operators';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {User} from "../../shared/models/user";
 
@@ -36,16 +37,47 @@ export class AuthService {
     );
   }
 
-  register(params: Register) {
-    console.log("register wurde aufgerufen");
 
-    return this.http.post<User>('http://127.0.0.1:4555/api/register', params, this.getStandardOptions()).subscribe({
-      next: () => this.signIn(params),
-      error: error => {
-        console.log("error while login:" + error);
-      }
+  //Creates a user in firebase and in the backend using his unique email address
+  reg(params: { email: string, password: string, role: string }) {
+    console.log("user will be created in firebase");
+    return from(this.auth.createUserWithEmailAndPassword(params.email, params.password)).pipe(
+      mergeMap(() => {
+        console.log("user will be created in backend");
+        return this.http.post<User>('http://127.0.0.1:4555/api/register', params, this.getStandardOptions());
+      }),
+      catchError((error: any) => {
+        console.log("Fehler beim Erstellen des Benutzers:", error);
+        return throwError(() => error);
+      })
+    );
+  }
+
+  register(params: { email: string, password: string, role: string }) {
+    return new Promise<any>((resolve, reject) => {
+      this.auth.createUserWithEmailAndPassword(params.email, params.password)
+        .then(userCredential  => {
+          const user: User = {
+            email: params.email,
+            role: params.role,
+            activeQuests: []
+          };
+
+          this.http.put<User>('http://127.0.0.1:4555/api/register', user, this.getStandardOptions())
+            .subscribe((response) => {
+                resolve(response);
+              },error => {
+                reject(error);
+              }
+            );
+        })
+        .catch(error => {
+          reject(error);
+        });
     });
   }
+
+
 
   logout() {
     console.log("try to sign in")
@@ -111,7 +143,6 @@ type Register = {
   password: string;
   role: string;
   email: string;
-  username: string
 }
 
 
